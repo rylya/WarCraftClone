@@ -10,6 +10,18 @@ void rus_init_graph()
 }
 
 
+void rus_set_display_flags(int flag)
+{
+	al_set_new_display_flags(flag);
+}
+
+
+void rus_set_window_title(RUS_DISPLAY *display, const char *title)
+{
+	al_set_window_title(display->display, title);
+}
+
+
 RUS_DISPLAY *rus_create_display(int width, int height)
 {
 	ALLEGRO_DISPLAY *al_disp = al_create_display(width, height);
@@ -29,7 +41,7 @@ RUS_BITMAP *rus_load_bitmap(char filename[])
 
 void rus_draw_bitmap(RUS_BITMAP *bitmap, int x, int y)
 {
-	al_draw_bitmap(bitmap->bitmap, x, y, 0);
+	al_draw_bitmap(bitmap->bitmap, x/* + al_get_bitmap_width(bitmap->bitmap) / 2*/, y/* + al_get_bitmap_height(bitmap->bitmap) / 2*/, 0);
 }
 
 

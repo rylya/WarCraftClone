@@ -8,6 +8,8 @@
 #define RUS_KEY_RIGHT ALLEGRO_KEY_RIGHT
 #define RUS_KEY_LEFT ALLEGRO_KEY_LEFT
 
+#define RUS_FULLSCREEN ALLEGRO_FULLSCREEN
+
 #define WIDTH 640
 #define HEIGHT 480
 
@@ -34,8 +36,9 @@ typedef struct
 	ALLEGRO_COLOR color;
 } RUS_COLOR;
 
-
+void rus_set_display_flags(int flag);
 void rus_init_graph();
+void rus_set_window_title(RUS_DISPLAY *display, const char *title);
 RUS_DISPLAY *rus_create_display(int width, int height);
 RUS_BITMAP *rus_load_bitmap(char filename[]);
 void rus_draw_bitmap(RUS_BITMAP *bitmap, int x, int y);
